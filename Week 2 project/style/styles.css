@@ -130,6 +130,13 @@ overflow: auto;
 .filter-header {
  border-bottom: 1px solid var(--border);
 }
+.arrow-down {
+width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-top: 10px solid white;
+}
 
 
 .filter-options-Category {
@@ -160,13 +167,14 @@ overflow: auto;
 
 
 
-.Question1-Header{
+.Question-Header{
     color: #fff;
     margin-left: 1rem;
     width: 825px;
+    padding-top: 2rem;
 }
 
-.Question1{
+.Question{
  
 display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -175,87 +183,34 @@ display: grid;
 
 }
 
-.Question1 button{
+.Question button{
  display: flex;
   flex-direction: column;
    min-height: 50px;
    min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
+  border: 1px solid var(--colormain);
+ background-color:var(--colormain);
   color: #000;
   text-align: center;
 }
 
-.Question1 button:hover {
+.Question button:hover {
   background-color: #000;
-  color: #00ff7d;
+  color: var(--colormain);
 }
 
-.Question2-Header{
-    color: #fff;
-    margin-left: 1rem;
-    width: 825px;
+.Question button:disabled {
+  background-color: #313030;
+  color: #313030;
 }
 
-
-.Question2{
- 
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0 3rem;
- 
-
-}
-
-.Question2 button{
- display: flex;
-  flex-direction: column;
-   min-height: 50px;
-   min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
-  color: #000;
-  text-align: center;
-}
-
-.Question2 button:hover {
-  background-color: #000;
-  color: #00ff7d;
-}
-
-.Question3-Header{
-    color: #fff;
-    margin-left: 1rem;
-    width: 825px;
+.Question button:checked {
+ background-color: #000;
+  color: var(--colormain);
 }
 
 
-.Question3{
- 
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0 3rem;
- 
 
-}
-
-.Question3 button{
- display: flex;
-  flex-direction: column;
-   min-height: 50px;
-   min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
-  color: #000;
-  text-align: center;
-}
-
-.Question3 button:hover {
-  background-color: #000;
-  color: #00ff7d;
-}
 
 .film-grid-title {
   color: #fff;
@@ -265,7 +220,7 @@ display: grid;
    border-bottom: 1rem solid var(--colormain);
     border-radius: 1rem;
     min-height: 20%;
-    min-width: 75%;
+    min-width: 100%;
    float: left;
  
   
