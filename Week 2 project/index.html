@@ -12,9 +12,28 @@
 
     <div class="site-banner">
         <header class="site-header">
+
+
+           
+            <div class="navbar">
+                <nav >
+                    <ul>
+                        <li><a href="#">Channels</a></li>
+                        <li><a href="#">Submit</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Pick Somthing</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                    
+                </nav>
+            </div>
+    
+
             <p class="eyebrow">DirectorsNotes</p>
             <h1>What Should I watch?</h1>
-            <h2> No Idea what to watch?</h2>
+            <h2> No Idea what to watch? Let us help you find something new</h2>
+            <p> We have been curating our archive of short films for over 20 years. Understandably, we have a lot of films. But if your in the mood to try somthing new let us select 5 films for you to enjoy. Just awsner three questions, Or if you want to leave it up to us, we can randomize the selection for you.</p>
         </header>
     </div>
 
@@ -29,7 +48,7 @@
 
                 <h2 id="films-heading">Choose from 5 selected films</h2>
             </div>
-            <p>Archiive total: 12,0045</p>
+            <p>Archive total: 12,0045</p>
         </div>
 
         <div class="Filter-question-Grid">
@@ -57,21 +76,31 @@
 
             <div class="filter-options-Genre">
                 <h4>Year</h4>
+                <button type="radio"> Before 2000 </button>
                 <button type="radio">2000-2005</button>
                 <button type="radio">2006-2010</button>
                 <button type="radio">2011-2015</button>
                 <button type="radio">2016-2020</button>
                 <button type="radio">2021-2024</button>
+                <button type="radio"> 20024-Present</button>
             </div>
 
-            <h2 class="filter-header"> Advanced Filters</h2>
-            <div class="filter-options-Genre">
-                <h4>Genre</h4>
-                <button type="radio">Action</button>
-                <button type="radio">Comedy</button>
-                <button type="radio">Drama</button>
-                <button type="radio">Queer</button>
-                <button type="radio">Women-lead</button>
+            <h3 class="filter-header"> Advanced Filters</h3>
+            <div class="filter-options-ReviewStyle">
+                <h4>ReviewStyle</h4>
+                <button type="radio">Podcast</button>
+                <button type="radio">Wriiten</button>
+                <button type="radio">InPerson</button>
+            </div>
+
+            <div class="filter-options-ReviewStyle">
+                <h4>Shot Type</h4>
+                <button type="radio"> Extreme Wide Shot</button>
+                <button type="radio"> Wide Shot</button>
+                <button type="radio">Medium Wide Shot</button>
+                  <button type="radio">  Medium Shot</button>
+                <button type="radio"> Medium Close-Up</button>
+                <button type="radio">Close-Up</button>
             </div>
 
         </div>
@@ -134,8 +163,9 @@
         </div>
     </div> 
     
-
+<h2 class = "film-grid-title"> Our Picks</h2>
         <div class="film-grid">
+         
             <article class="film-card">
                 <p class="film-meta">Documentary · Ireland · 2023</p>
                 <h3>The Quiet Cartographer</h3>
@@ -170,7 +200,15 @@
                 <p>Two sisters invent a weather forecast to delay a difficult goodbye.</p>
                 <button type="button">Watch Now</button>
             </article>
-
+            
+            
+                 <article class="retake">
+                <h3>RETAKE</h3>
+                <p>Already watched these, or looking for somthing a bit different? </p>
+                <p>Let's do a Retake</p>
+                <button type="button">Select 5 more</button>
+                 </article>
+                
 
         </div>
     </section>

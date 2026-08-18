@@ -6,6 +6,8 @@
   --border: #d8d2c8;
   --accent: #b33a2f;
   --accent-dark: #84271f;
+  --Headerbg: #1d1a1a;
+  --colormain: #00ff7d;
 }
 
 * {
@@ -22,8 +24,8 @@ body {
 }
 
 .site-banner {
-    background-color: #1d1a1a;
-    color:#00ff7d;
+    background-color: var(--Headerbg);
+    color:var(--colormain);
     padding: 1rem;
    
 }
@@ -47,6 +49,37 @@ footer {
 .site-header > p:last-child {
   max-width: 620px;
   color: #fff;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+   overflow: hidden;
+  background-color:var(--Headerbg);
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+ul li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #dfdfdf ;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+/* Change the link and background color on hover */
+li a:hover {
+  background-color: #555555;
+  color: white;
 }
 
 .eyebrow {
@@ -84,11 +117,13 @@ footer {
   margin-right: 1rem;
   padding: 10px;
   color: #fff;
-  background-color: #404040;
-  min-width: 20%;
+  background-color: var(--background);
+  min-width: 15%;
   max-width: 25%;
   min-height: 650px;
   float: left;
+border-right: 0.2rem solid var(--border);
+overflow: auto;
   
 }
 
@@ -106,13 +141,13 @@ footer {
 }
 
 .filter button {
-  color:#000;
-  background-color: #fff;
+  color:#d8d8d8;
+  background-color: #242424;
 }
 
 .filter button:hover {
-  color:#00ff7d;
-  background-color: #000;
+  color: #000;
+  background-color: var(--colormain);
 }
 
 .filter-options-Genre {
@@ -222,13 +257,30 @@ display: grid;
   color: #00ff7d;
 }
 
+.film-grid-title {
+  color: #fff;
+  background-color: #1d1a1a;
+  padding: 1rem;
+  margin-left: rem;
+   border-bottom: 1rem solid var(--colormain);
+    border-radius: 1rem;
+    min-height: 20%;
+    min-width: 100%;
+   float: left;
+ 
+  
+}
 
 .film-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   padding: 1.5rem 0 3rem;
+  clear: left
+
 }
+
+
 
 .film-card {
   display: flex;
@@ -273,6 +325,44 @@ display: grid;
 .film-card button:focus-visible {
   outline: 3px solid var(--text);
   outline-offset: 3px;
+}
+
+.retake{
+   display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 1.25rem;
+  border: 1px solid var(--Headerbg);
+  border-radius: 0.5rem;
+  background-color: var(--Headerbg);
+
+}
+
+.retake h3{
+ 
+  color: var(--colormain);
+
+}
+
+.retake button{
+ 
+   align-self: flex-start;
+  margin-top: auto;
+  padding: 0.65rem 0.9rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #000;
+  background-color: var(--colormain);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+
+}
+
+.retake p{
+ 
+  color: #fff;
+
 }
 
 footer {
