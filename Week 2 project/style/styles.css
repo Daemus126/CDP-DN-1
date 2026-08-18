@@ -130,6 +130,13 @@ overflow: auto;
 .filter-header {
  border-bottom: 1px solid var(--border);
 }
+.arrow-down {
+width: 0;
+height: 1rem;
+border-left: 1rem solid transparent;
+border-right: 1rem solid transparent;
+border-top: 1rem solid white;
+}
 
 
 .filter-options-Category {
@@ -160,102 +167,50 @@ overflow: auto;
 
 
 
-.Question1-Header{
+.Question-Header{
     color: #fff;
     margin-left: 1rem;
     width: 825px;
+    padding-top: 2rem;
 }
 
-.Question1{
+.Question{
  
 display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
-  padding: 1.5rem 0 3rem;
+  padding: 1.5rem 0 5rem;
 
 }
 
-.Question1 button{
+.Question button{
  display: flex;
   flex-direction: column;
    min-height: 50px;
    min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
+  border: 1px solid var(--colormain);
+ background-color:var(--colormain);
   color: #000;
   text-align: center;
 }
 
-.Question1 button:hover {
+.Question button:hover {
   background-color: #000;
-  color: #00ff7d;
+  color: var(--colormain);
 }
 
-.Question2-Header{
-    color: #fff;
-    margin-left: 1rem;
-    width: 825px;
+.Question button:disabled {
+  background-color: #313030;
+  color: #313030;
 }
 
-
-.Question2{
- 
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0 3rem;
- 
-
-}
-
-.Question2 button{
- display: flex;
-  flex-direction: column;
-   min-height: 50px;
-   min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
-  color: #000;
-  text-align: center;
-}
-
-.Question2 button:hover {
-  background-color: #000;
-  color: #00ff7d;
-}
-
-.Question3-Header{
-    color: #fff;
-    margin-left: 1rem;
-    width: 825px;
+.Question button:checked {
+ background-color: #000;
+  color: var(--colormain);
 }
 
 
-.Question3{
- 
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem 0 3rem;
- 
 
-}
-
-.Question3 button{
- display: flex;
-  flex-direction: column;
-   min-height: 50px;
-   min-width: 300px;
-  border: 1px solid var(--border);
- background-color: #00ff7d;
-  color: #000;
-  text-align: center;
-}
-
-.Question3 button:hover {
-  background-color: #000;
-  color: #00ff7d;
-}
 
 .film-grid-title {
   color: #fff;
@@ -276,21 +231,43 @@ display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   padding: 1.5rem 0 3rem;
-  clear: left
+  clear: left;
 
 }
 
+
+.film-grid :hover span{
+text-align: center;
+}
+
+.film-grid :hover {
+  background-color: var(--Headerbg);
+  color: var(--colormain);
+ content: " Queote about the move place holder text"
+
+}
+
+.film-title-card {
+ 
+  border-radius: 0.5rem;
+  border: 0.25rem solid var(--Headerbg);
+ 
+}
 
 
 .film-card {
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  min-height: 100%;
   padding: 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-top: 0.25rem  solid var(--Headerbg);
+  border-right: 0.25rem  solid var(--Headerbg);
+  border-bottom: 0.25rem  solid var(--Headerbg);
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
   background-color: var(--surface);
 }
+
+
 
 .film-card h3 {
   margin: 0.5rem 0;
@@ -316,10 +293,12 @@ display: grid;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+ 
 }
 
-.film-card button:hover {
-  background-color: var(--accent-dark);
+.film-card button :hover {
+  background-color: var(--surface);
+  color:  var(--Headerbg);
 }
 
 .film-card button:focus-visible {
