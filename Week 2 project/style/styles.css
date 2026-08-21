@@ -140,7 +140,7 @@ border-top: 1rem solid white;
 
 
 .filter-options-Category {
-  diplay: flex;
+ 
   flex-direction: column;
   color: #fff;
   padding-bottom: 1rem;
@@ -150,7 +150,26 @@ border-top: 1rem solid white;
 .filter button {
   color:#d8d8d8;
   background-color: #242424;
+  padding: 0.25rem;
 }
+
+
+.filter--selected  {
+  color: #000;
+ background-color: var(--colormain);
+  padding: 0.25rem;
+} 
+
+.filter button.added{
+  color: #000;
+ background-color: var(--colormain);  
+  padding: 0.25rem;
+ 
+
+}
+
+
+
 
 .filter button:hover {
   color: #000;
@@ -158,7 +177,7 @@ border-top: 1rem solid white;
 }
 
 .filter-options-Genre {
-  diplay: flex;
+
   flex-direction: column;
   color: #fff;
   padding-bottom: 1rem;
@@ -196,21 +215,73 @@ display: grid;
 
 .Question button:hover {
   background-color: #000;
-  color: var(--colormain);
+  color: var(--accent);
 }
 
-.Question button:disabled {
-  background-color: #313030;
-  color: #313030;
-}
 
-.Question button:checked {
+
+.Questons--selected {
  background-color: #000;
   color: var(--colormain);
 }
 
 
+.Question button.added{
+ background-color: #000;
+  color: var(--colormain);
+ 
 
+}
+
+.Prompt1 button {
+ background-color:  var(--colormain);
+ color: #000;
+}
+
+
+.Prompt1--selected {
+ background-color: #000;
+  color: var(--colormain);
+}
+
+
+.Prompt1 button.added{
+ background-color: #000;
+  color: var(--colormain);
+ 
+
+}
+
+
+.Prompt1 button:disabled {
+  background-color: #313030;
+  color: #313030;
+}
+
+.Prompt2 button {
+ background-color:  var(--colormain);
+ color: #000;
+}
+
+
+.Prompt2--selected {
+ background-color: #000;
+  color: var(--colormain);
+}
+
+
+.Prompt2 button.added{
+ background-color: #000;
+  color: var(--colormain);
+ 
+
+}
+
+
+.Prompt2 button.disabled {
+  background-color: #313030;
+  color: #313030;
+}
 
 .film-grid-title {
   color: #fff;
@@ -297,8 +368,8 @@ text-align: center;
 }
 
 .film-card button :hover {
-  background-color: var(--surface);
-  color:  var(--Headerbg);
+  background-color: var(--surface) !important;
+  color:  var(--Headerbg) !important;
 }
 
 .film-card button:focus-visible {

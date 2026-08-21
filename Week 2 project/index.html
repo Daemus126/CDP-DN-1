@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Short Film Programme Builder</title>
     <link rel="stylesheet" href="style/styles.css">
+    
 </head>
 
 <body>
@@ -113,13 +114,14 @@
         </div>
 
         <div class="Question">
-            <article class="Prompt1">
+            <article class="Prompt1" data-index="Begin-1">
                 <button type="button">
                     <h2> Let Me Choose</h2>
                 </button>
             </article>
+            
 
-            <article class="Prompt2">
+            <article class="Prompt2" data-index="Begin-2">
                 <button type="button">
                     <h2>Randomize</h2>
                 </button>
@@ -132,13 +134,13 @@
 
         <div class="Question">
 
-            <article class="Prompt1">
+            <article class="Prompt1" data-index="Length-1" >
                 <button type="button">
                     <h2> Under 20 minutes</h2>
                 </button>
             </article>
 
-            <article class="Prompt2">
+            <article class="Prompt2" data-index="Length-2">
                 <button type="button">
                     <h2>20 mins or over </h2>
                 </button>
@@ -151,13 +153,13 @@
 
 
         <div class="Question">
-            <article class="Prompt1">
+            <article class="Prompt1" data-index="Archive-1">
                 <button type="button">
                     <h2>New To Directors Notes</h2>
                 </button>
             </article>
 
-            <article class="Prompt2">
+            <article class="Prompt2" data-index="Archive-2">
                 <button type="button">
                     <h2> From the Archive </h2>
                 </button>
@@ -172,10 +174,12 @@
             src="https://directorsnotes.com/wp-content/uploads/2026/07/pleasure_jasper_caverly_02-387x387.jpg"
             alt="film-title-card">
         <article class="film-card">
+
             <p class="film-meta">Documentary · Ireland · 2023</p>
             <h3>The Quiet Cartographer</h3>
     
             <p>A mapmaker records disappearing paths along a changing coastline.</p>
+           
             <button type="button">Watch Now</button>
     
         </article>
@@ -244,6 +248,9 @@
 <footer>
     <p>Copyright © 2026 DirectorsNotes. All rights reserved.</p>
 </footer>
+
+<script src="scripts/script.js"> </script>
+
 </body>
 
 </html>
