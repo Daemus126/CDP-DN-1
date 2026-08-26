@@ -5,10 +5,6 @@ const filterButtons = document.querySelectorAll(".filter button");
 const MainQuestions = document.querySelectorAll(".Question button");
 const prompt1 = document.querySelectorAll(".Prompt1 button");
 const prompt2 = document.querySelectorAll(".Prompt2 button");
-const prompt3 = document.querySelectorAll(".Prompt3 button");
-const prompt4 = document.querySelectorAll(".Prompt4 button");
-const prompt5 = document.querySelectorAll(".Prompt5 button");
-const prompt6 = document.querySelectorAll(".Prompt6 button");
 
 console.log("found buttons", filterButtons);
 console.log("found filter", prompt1)
@@ -40,8 +36,8 @@ filterButtons.forEach(function (button) {
 });
 
 
-function setDisable (key) {
-    const KeyValue = key.split('-');
+function togglesetDisable (key) {
+    const KeyValue = key.split("-");
     console.log('key', key, KeyValue)
     MainQuestions.forEach(function (button) {
         if (button.dataset.index.includes(KeyValue[0])) {
