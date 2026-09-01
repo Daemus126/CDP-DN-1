@@ -1,30 +1,51 @@
-import { useState } from "react"
 
-export const FilmCard = (props) =>{
 
-const [isSelected, setIsSelected] = useState(false);
+function FilmCard({ id, title, synopsis, form, country, year, runtimeMinutes,
+    themes, poster, posterAlt, isSelected, onToggleSelect }) {
+    const cardClass = isSelected
+        ? "film-card film-card--selected"
+        : "film-card";
 
-  function handleClick() {
-    
-        console.log('Am i FC?')
-    setIsSelected(!isSelected);
-  }
-    
-    
 
-            return (
-        <article className="film-card">
-            <p className="film-meta">
-                {props?.form} · {props?.country} · {props?.year}
-            </p>
-            <h3>{props?.title}</h3>
-            <p>{props?.synopsis}</p>
 
-            <button onClick={handleClick} ></button>
-        </article>
+    return (
+
     
 
-            );
+                    <div className="film-grid">
+
+
+                        <article className="film-card">
+
+                            <p className="film-meta">
+                                {form} · {country} · {year} · {runtimeMinutes} min
+                            </p>
+                            <h3>{title}</h3>
+                            <p>{synopsis}</p>
+
+                            <ul className="theme-list">
+                                {themes.map((theme) => (
+                                    <li key={theme}>{theme}</li>
+                                ))}
+                            </ul>
+
+                            {/* The arrow function matters. Writing onToggleSelect(id) here would
+          call it immediately, while the page is being drawn, instead of
+          waiting for a click. */}
+                            <button type="button" onClick={() => onToggleSelect(id)}
+                            >
+                                {isSelected ? "Replay?" : "Wacth Now"}
+                            </button>
+
+
+
+                        </article>
+                    </div>
+
+               
+
+    );
 
 }
 
+export default FilmCard;

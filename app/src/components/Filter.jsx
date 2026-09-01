@@ -16,14 +16,9 @@ export const FilterOptions = (props) => {
     return (
 
 
-
-    
-
             <button className={isSelected ? 'FilterOptions--Selected' :  'FilterOptions'} onClick={handleClick}> <p> {props?.Field} </p> </button>
 
        
-
-
 
     );
 

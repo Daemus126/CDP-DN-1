@@ -15,7 +15,7 @@ const films = [
       "Memory",
       "Place"
     ],
-    "poster": "/images/film-01.svg",
+    "poster": "CDP/CDP-DN-1/images/film-01.svg",
     "posterAlt": "Poster artwork for The Quiet Cartographer"
   },
   {
