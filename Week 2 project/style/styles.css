@@ -307,15 +307,23 @@ display: grid;
 }
 
 
-.film-grid :hover span{
-text-align: center;
+
+.film-grid :hover:Before{
+display: none
+}
+
+.film-grid :hover:After .quote{
+  color: var(--Headerbg)
+ 
+}
+.film-grid :hover:After .quote{
+  text-align: center;
+ 
 }
 
 .film-grid :hover {
   background-color: var(--Headerbg);
   color: var(--colormain);
- content: " Queote about the move place holder text"
-
 }
 
 .film-title-card {
@@ -371,6 +379,7 @@ text-align: center;
   background-color: var(--surface) !important;
   color:  var(--Headerbg) !important;
 }
+
 
 .film-card button:focus-visible {
   outline: 3px solid var(--text);
