@@ -190,7 +190,7 @@ function App() {
             return (
               <FilmCard
                 key={film.id}
-                id={film.id}
+               /* id={film.id} */
                 title={film.title}
                 synopsis={film.synopsis}
                 form={film.form}

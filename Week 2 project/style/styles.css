@@ -20,12 +20,12 @@ body {
   font-family: roboto, sans-serif;
   line-height: 1.5;
   color: var(--text);
-  background-color: var(--background);
+  background-color: var(--surface);
 }
 
 .site-banner {
-    background-color: var(--Headerbg);
-    color:var(--colormain);
+    background-color: var(--colormain);
+    color:var(--surface);
     padding: 1rem;
    
 }
