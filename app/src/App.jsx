@@ -96,7 +96,9 @@ function App() {
         <div className="Question-Header">
           <h2>Let's Begin</h2>
         </div>
+        
         <MainQuestions/>
+        
 
 
 

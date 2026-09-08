@@ -232,6 +232,8 @@ li a:hover {
   min-height: 70%;
   padding: 1rem;
   text-align: center;
+  font-weight: bold;
+  font-size: 18px;
   
 }
 

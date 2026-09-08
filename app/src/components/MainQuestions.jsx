@@ -82,7 +82,8 @@ function MainQuestions() {
             {myButtons.map((buttonData, index) => {
                 return (
                     <div key={index}>
-                        <button
+                       <div className='Questions'>
+                        <div
                             type="button" className='MainQuestions'
                             onClick={() => {
                                 handleOn()
@@ -90,8 +91,8 @@ function MainQuestions() {
                             }}
                         >
                             {buttonData[0].title}
-                        </button>
-                        <button
+                        </div>
+                        <div
                             type="button"  className='MainQuestions'
                             
                                onClick={() => {
@@ -100,7 +101,8 @@ function MainQuestions() {
                             }}
                         >
                             {buttonData[1].title}
-                        </button>
+                        </div>
+                        </div>
                     </div>
                 )
             })}
