@@ -1,18 +1,44 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 import { Header } from "./components/Header";
 import films from "./data/films.js";
 import FilmCard from "./components/FilmCard.jsx";
-import { FilterOptions } from './components/Filter'
-import { MainQuestions } from './components/MainQuestions'
+import MainQuestions from './components/MainQuestions.jsx';
 import { Footer } from './components/footer'
 import RandomNumber from './data/random.js'
+import { ToggleHideF1 } from './components/ToggleHideF1.jsx'
+import { ToggleHideF2 } from './components/ToggleHideF2.jsx'
+import {Redraw} from './components/Redraw.jsx';
+
+
+const selectedFilmsKey = "programme-builder-selected-films";
+
+function getIntitialSelectedFilms() {
+  const saveSelectedIds = localStorage.getItem(selectedFilmsKey);
+  if (saveSelectedIds) {
+    return JSON.parse(saveSelectedIds);
+  }
+  return [];
+}
+
+
+ const filmIndices = RandomNumber(5, films.length)
+  console.log('film indiiciies', filmIndices)
+
+
 function App() {
 
 
   // const [count, setCount] = useState(0)
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [selectedIds, setSelectedIds] = useState(getIntitialSelectedFilms());
+
+  
+  useEffect(() => {
+    localStorage.setItem(selectedFilmsKey, JSON.stringify(selectedIds));
+  }, [selectedIds]);
+  
+
 
   function handleToggleSelect(id) {
     if (selectedIds.includes(id)) {
@@ -24,20 +50,10 @@ function App() {
 
   const maxFilms = 5;
 
-  /*
-    function ToggleHide() {
-      const [isVisible, setIsVisible] = useState(false)
-  
-      function handleHide() {
-        setIsVisible(!isVisible)
-      }
-    }
-  */
 
   //  const selectedFilms = films.filter((film) => selectedIds.includes(film.id));
 
-  const filmIndices = RandomNumber(5, films.length)
-  console.log('film indiiciies', filmIndices)
+ 
 
   return (
     <>
@@ -64,78 +80,15 @@ function App() {
 
             <h2 className="filter-header"> Filter</h2>
 
+            <ToggleHideF1 />
 
-            <button className="arrow-down" /*onClick={handleHide}*/></button>
-
-
-            <div className='FilterOptionsTitle'>
-              <h4>Category</h4>
-              <FilterOptions
-                Field="Drama" />
-              <FilterOptions
-                Field="Comedy" />
-
-            </div><div className='FilterOptionsTitle'>
-              <h4>Genre</h4>
-              <FilterOptions
-                Field="Drama" />
-              <FilterOptions
-                Field="Comedy" />
-              <FilterOptions
-                Field="Action" />
-              <FilterOptions
-                Field="Horror" />
-
-            </div><div className='FilterOptionsTitle'>
-              <h4>Year</h4>
-              <FilterOptions
-                Field="Before 2000" />
-              <FilterOptions
-                Field="2000-2005" />
-              <FilterOptions
-                Field="2005-2010" />
-              <FilterOptions
-                Field="2010-2015" /><FilterOptions
-                Field="2015-2020" />
-              <FilterOptions
-                Field="2025-2026" />
-              <FilterOptions
-                Field="After 2025" />
-
-            </div>
 
             <h2 className="filter-header"> Advanced filter</h2>
-            <button className="arrow-down"></button>
-            <div className='FilterOptionsTitle'>
-              <h4>Review style</h4>
-              <FilterOptions
-                Field="Inperson"
-              />
-              <FilterOptions
-                Field="Written"
-              />
-              <FilterOptions
-                Field="Video"
-              />
-            </div>
 
-            <div className='FilterOptionsTitle'>
-              <h4>Shot Type</h4>
-              <FilterOptions
-                Field="Wide"
-              />
-              <FilterOptions
-                Field="Written"
-              />
-              <FilterOptions
-                Field="Video"
-              />
-
-
-
-            </div>
+            <ToggleHideF2 />
 
           </div>
+
 
         </div>
 
@@ -143,39 +96,7 @@ function App() {
         <div className="Question-Header">
           <h2>Let's Begin</h2>
         </div>
-
-        <div className="Questions">
-          <MainQuestions
-            Question1="Let me Pick"
-            Question2="randomize"
-          />
-
-        </div>
-
-        <div className="Question-Header">
-          <h2>Length of film</h2>
-        </div>
-
-        <div className="Questions">
-          <MainQuestions
-            Question1="Under 20 mins"
-            Question2="Over 20 mins"
-          />
-
-        </div>
-
-
-        <div className="Question-Header">
-          <h2>Where from?</h2>
-        </div>
-
-        <div className="Questions">
-          <MainQuestions
-            Question1="New to DN"
-            Question2="From the archive"
-          />
-
-        </div>
+        <MainQuestions/>
 
 
 
@@ -190,7 +111,7 @@ function App() {
             return (
               <FilmCard
                 key={film.id}
-               /* id={film.id} */
+                id={film.id}
                 title={film.title}
                 synopsis={film.synopsis}
                 form={film.form}
@@ -211,7 +132,7 @@ function App() {
             <h3>RETAKE</h3>
             <p>Already watched these, or looking for somthing a bit different? </p>
             <p>Let's do a Retake</p>
-            <button type="button">Select 5 more</button>
+            <button type="button" onClick={Redraw}>Select 5 more</button>
           </article>
 
         </div>

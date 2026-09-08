@@ -32,9 +32,11 @@ function FilmCard({ id, title, synopsis, form, country, year, runtimeMinutes,
                             {/* The arrow function matters. Writing onToggleSelect(id) here would
           call it immediately, while the page is being drawn, instead of
           waiting for a click. */}
-                            <button type="button" onClick={() => onToggleSelect(id)}
-                            >
-                                {isSelected ? "Replay?" : "Wacth Now"}
+                            <button type="button"
+                             className={isSelected ? 'film-Card--Select' : 'film-card-Nselect'} 
+                              onClick={() => onToggleSelect(id)}
+                             >
+                                {isSelected ? "Replay?" : "Watch Now"}
                             </button>
 
 

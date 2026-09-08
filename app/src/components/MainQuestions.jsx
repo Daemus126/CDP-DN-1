@@ -1,44 +1,119 @@
 import { useState } from "react"
 
-export const MainQuestions = (props) => {
 
-    const [isSelected1, setIsSelected1] = useState(false);
-    const [isSelected2, setIsSelected2] = useState(false);
+const ToggleNextQ = () => {
+    console.log("TNQ")
+}
 
-    function handleClick1() {
+const Randomize = () => {
+    console.log("Randomize")
+}
 
-        console.log('Am i MQ?')
-        setIsSelected1(!isSelected1);
+const PickUnder20 = () => {
+    console.log("PickUnder20")
+}
+
+const PickOver20 = () => {
+    console.log("PickOver20")
+}
+
+const NewFilm = () => {
+    console.log("NewFilm")
+}
+
+const OldFilm = () => {
+    console.log("OldFilm")
+}
+
+
+
+const MQuestionData = [
+    [
+        {
+            title: 'Let Me Pick',
+            function: ToggleNextQ,
+        },
+        {
+            title: 'Randomize',
+            function: Randomize,
+        },
+    ],
+    [
+        {
+            title: 'Under 20 Mins',
+            function: PickUnder20,
+        },
+        {
+            title: 'Over 20 mins',
+            function: PickOver20,
+        },
+    ],
+    [
+        {
+            title: 'New to Directors Notes',
+            function: NewFilm,
+        },
+        {
+            title: 'From The Archive',
+            function: OldFilm,
+        },
+    ],
+]
+
+function MainQuestions() {
+    const [count, setCount] = useState(0)
+
+    const handleOn = () => {
+        const thisCount = count + 1
+
+        if (thisCount < MQuestionData.length) {
+            setCount(thisCount)
+        }
 
     }
- 
 
-    function handleClick2() {
-
-        console.log('Am i SQ?')
-        setIsSelected2(!isSelected2);
-        
+    const myButtons = []
+    for (let i = 0; i <= count; i++) {
+        myButtons.push(MQuestionData[i])
     }
-
-
 
     return (
-
-            <>
-            
-            
-            <button className={isSelected1 ? 'MainQuestions--Selected' : isSelected2 ? 'MainQuestions--Disabled' : 'MainQuestions'} 
-            onClick={handleClick1}>
-            <h2> {props?.Question1} </h2>
-        </button>
-        
-        <button className={isSelected2 ? 'MainQuestions--Selected' : isSelected1 ? 'MainQuestions--Disabled' : 'MainQuestions'}  
-        onClick={handleClick2}>  
-                <h2> {props?.Question2} </h2>
-            </button></>
-
-
-    );
-
+        <>
+            {myButtons.map((buttonData, index) => {
+                return (
+                    <div key={index}>
+                        <button
+                            type="button" className='MainQuestions'
+                            onClick={() => {
+                                handleOn()
+                                buttonData[0].function()
+                            }}
+                        >
+                            {buttonData[0].title}
+                        </button>
+                        <button
+                            type="button"  className='MainQuestions'
+                            
+                               onClick={() => {
+                                handleOn()
+                                buttonData[1].function()
+                            }}
+                        >
+                            {buttonData[1].title}
+                        </button>
+                    </div>
+                )
+            })}
+        </>
+    )
 }
+
+export default MainQuestions
+
+/*
+<button type="radio"
+ 
+
+*/
+
 

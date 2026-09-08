@@ -125,7 +125,7 @@ li a:hover {
   background-color: var(--background);
   min-width: 15%;
   max-width: 20%;
-  min-height: 650px;
+  min-height: 60%;
   float: left;
   border-right: 0.2rem solid var(--border);
   overflow: auto;
@@ -140,11 +140,41 @@ li a:hover {
   height: 1rem;
      width:1rem;
      border:none;
-     border-top:5px solid #000000;
-     border-left:5px solid rgba(0,0,0,0);
-     border-right:5px solid rgba(0,0,0,0);
+     border-top:20px solid #000000;
+     border-left:20px solid rgba(0,0,0,0);
+     border-right:20px solid rgba(0,0,0,0);
+     background-color: var(--background);
+}
+.arrow-down:hover {
+  height: 1rem;
+     width:1rem;
+     border:none;
+    border-top:20px solid #000000;
+     border-left:20px solid rgba(0,0,0,0);
+     border-right:20px solid rgba(0,0,0,0);
+     background-color: var(--colormain);
 }
 
+.arrow-up {
+  height: 1rem;
+     width:1rem;
+     border:none;
+     border-bottom:20px solid #000000;
+     border-left:20px solid rgba(0,0,0,0);
+     border-right:20px solid rgba(0,0,0,0);
+      background-color: var(--background);
+}
+
+.arrow-up:hover {
+  height: 1rem;
+     width:1rem;
+     border:none;
+   border-bottom:20px solid #000000;
+     border-left:20px solid rgba(0,0,0,0);
+     border-right:20px solid rgba(0,0,0,0);
+      background-color: var(--colormain);
+;
+}
 
 .FilterOptionsTitle {
 
@@ -241,10 +271,9 @@ background-color: var(--Headerbg);
   color: #fff;
   background-color: #1d1a1a;
   padding: 1rem;
-  margin-left: rem;
   border-bottom: 1rem solid var(--colormain);
   border-radius: 1rem;
-  min-height: 20%;
+  min-height: 30%;
   min-width: 100%;
   float: left;
 
@@ -308,7 +337,8 @@ background-color: var(--Headerbg);
 }
 
 .film-card button {
-  align-self: flex-start;
+  max-width: 40%;
+  max-height: 20%;
   margin-top: auto;
   padding: 0.65rem 0.9rem;
   border: 0;
@@ -318,8 +348,40 @@ background-color: var(--Headerbg);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  text-align: center;
 
 }
+.film-card-Nselect {
+   all: unset;
+  max-width: 40%;
+  max-height: 20%;
+  margin-top: auto;
+  padding: 0.65rem 0.9rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  background-color: var(--accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+    text-align: center;
+
+}
+
+.film-Card--Select {
+  all: unset;
+    max-width: 40%;
+  max-height: 20%;
+  margin-top: auto;
+  padding: 0.65rem 0.9rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--Headerbg) !important;
+  background-color: var(--colormain) !important;
+    text-align: center;
+  
+}
+
 
 .film-card button :hover {
   background-color: var(--surface) !important;
