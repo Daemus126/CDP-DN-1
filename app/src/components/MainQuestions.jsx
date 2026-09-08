@@ -24,9 +24,6 @@ export const MainQuestions = (props) => {
 
     return (
 
-
-            
-
             <>
             
             
