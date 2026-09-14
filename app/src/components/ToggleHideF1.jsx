@@ -15,18 +15,35 @@ export const ToggleHideF1 = () => {
 
   function Category({key, form, country, year, 
     themes }) {
-    console.log("form", form)
     const [isSelected, setIsSelected] = useState(false);
     function handleClick() {
       setIsSelected(!isSelected);
       console.log('Am i filter?', isSelected)
+      
     }
     return (
-      <button className={isSelected ? 'FilterOptions--Selected' : 'FilterOptions'} onClick={handleClick}> <p> {form} {country} {year} {themes} </p> </button>
+      <button className={isSelected ? 'FilterOptions--Selected' : 'FilterOptions'} onClick={handleClick}> <p>  {form} {country} {year} {themes} </p> </button>
     );
   }
 
- 
+  
+
+const uniqueThemes = [...new Set(films.flatMap(films => films.form))];
+console.log("UNT", uniqueThemes)
+const uniqueForms = [...new Set(films.flatMap(films => films.form))];
+console.log("UNF", uniqueForms)
+
+function UNForms() {
+  const [isSelected, setIsSelected] = useState(false);
+    function handleClick() {
+      setIsSelected(!isSelected);
+    }
+    return (
+      <button className={isSelected ? 'FilterOptions--Selected' : 'FilterOptions'} onClick={handleClick}> <p>  {uniqueForms} </p> </button>
+    )
+    
+  };
+
 
 
 
@@ -36,20 +53,17 @@ export const ToggleHideF1 = () => {
       {isVisible &&
         <><div className='FilterOptionsTitle'>
           <h4>Category</h4>
-          {films.map((film) => (
+        {films.map((film) => (
            <Category 
-             key={film.id}
-           form={film.themes}/>
+            key={film.id}
+            themes={film.themes}
+          />
           ))}
          
 
         </div><div className='FilterOptionsTitle'>
             <h4>Genre</h4>
-           {films.map((film) => (
-           <Category 
-             key={film.id}
-           form={film.form}/>
-          ))}
+           <UNForms/>
 
 
           </div><div className='FilterOptionsTitle'>
