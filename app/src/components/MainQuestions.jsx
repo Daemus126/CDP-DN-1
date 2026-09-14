@@ -1,8 +1,12 @@
 import { useState } from "react"
 
 
+
 const ToggleNextQ = () => {
     console.log("TNQ")
+    const [isSelected, setIsSelected] = useState(false);
+    setIsSelected(!isSelected);
+    console.log("iselect")
 }
 
 const Randomize = () => {
@@ -30,6 +34,7 @@ const OldFilm = () => {
 const MQuestionData = [
     [
         {
+
             title: 'Let Me Pick',
             function: ToggleNextQ,
         },
@@ -37,8 +42,8 @@ const MQuestionData = [
             title: 'Randomize',
             function: Randomize,
         },
-    ],
-    [
+    
+    
         {
             title: 'Under 20 Mins',
             function: PickUnder20,
@@ -61,7 +66,14 @@ const MQuestionData = [
 ]
 
 function MainQuestions() {
+
+    const [ButtonClass, SetButtonClass] = useState("MainQuestions");
     const [count, setCount] = useState(0)
+
+  
+
+
+
 
     const handleOn = () => {
         const thisCount = count + 1
@@ -69,6 +81,7 @@ function MainQuestions() {
         if (thisCount < MQuestionData.length) {
             setCount(thisCount)
         }
+
 
     }
 
@@ -82,26 +95,28 @@ function MainQuestions() {
             {myButtons.map((buttonData, index) => {
                 return (
                     <div key={index}>
-                       <div className='Questions'>
-                        <div
-                            type="button" className='MainQuestions'
-                            onClick={() => {
-                                handleOn()
-                                buttonData[0].function()
-                            }}
-                        >
-                            {buttonData[0].title}
-                        </div>
-                        <div
-                            type="button"  className='MainQuestions'
-                            
-                               onClick={() => {
-                                handleOn()
-                                buttonData[1].function()
-                            }}
-                        >
-                            {buttonData[1].title}
-                        </div>
+                        <div className='Questions'>
+                            <div
+                                type="button" className={ButtonClass}
+                                onClick={() => {
+                                    handleOn()
+                                    buttonData[0].function()
+                                    ToggleButtonClass
+
+                                }}
+                            >
+                                {buttonData[0].title}
+                            </div>
+                            <div
+                                type="button" className='MainQuestions'
+
+                                onClick={() => {
+                                    handleOn()
+                                    buttonData[1].function()
+                                }}
+                            >
+                                {buttonData[1].title}
+                            </div>
                         </div>
                     </div>
                 )

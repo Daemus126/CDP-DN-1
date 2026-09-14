@@ -237,7 +237,7 @@ li a:hover {
   
 }
 
-.MainQuestions :hover {
+.MainQuestions:hover {
 background-color: #000 ;
   color: #00ff7d;
 }
