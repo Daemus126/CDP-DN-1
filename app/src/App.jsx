@@ -12,6 +12,7 @@ import { ToggleHideF2 } from './components/ToggleHideF2.jsx'
 import {Redraw} from './components/Redraw.jsx';
 
 
+
 const selectedFilmsKey = "programme-builder-selected-films";
 
 function getIntitialSelectedFilms() {
@@ -60,17 +61,18 @@ function App() {
 
       <Header>
 
-        <section aria-labelledby="films-heading">
-          <div class="section-heading">
-            <div>
+        
 
+      </Header>
+
+      <section aria-labelledby="films-heading">
+          <div className="section-heading">
+            <div>
               <h2 id="films-heading">Choose from 5 selected films</h2>
             </div>
             <p>Archive total: 6,000</p>
           </div>
         </section>
-
-      </Header>
 
       <div className="body">
 
