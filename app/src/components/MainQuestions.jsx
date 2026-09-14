@@ -92,6 +92,8 @@ function MainQuestions() {
 
     return (
         <>
+        <div className="Questions">
+            
             {myButtons.map((buttonData, index) => {
                 return (
                     <div key={index}>
@@ -119,8 +121,11 @@ function MainQuestions() {
                             </div>
                         </div>
                     </div>
+                  
                 )
             })}
+           
+              </div>
         </>
     )
 }

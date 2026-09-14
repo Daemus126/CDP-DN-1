@@ -7,18 +7,13 @@ export const FilterOptions = (props) => {
   function handleClick() {
     setIsSelected(!isSelected);
         console.log('Am i filter?', isSelected)
-
-
   }
 
 
     
     return (
 
-
             <button className={isSelected ? 'FilterOptions--Selected' :  'FilterOptions'} onClick={handleClick}> <p> {props?.Field} </p> </button>
-
-       
 
     );
 

@@ -1,6 +1,7 @@
 
    import { useState } from "react"
-   import { FilterOptions } from './Filter'
+ import { FilterOptions } from "./Filter"
+ 
 
    export const ToggleHideF2 = () => {
       const [isVisible, setIsVisible] = useState(true)
