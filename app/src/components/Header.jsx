@@ -22,8 +22,8 @@ return (
     
 
             <p className="eyebrow">DirectorsNotes</p>
-            <h1>What Should I watch?</h1>
-            <h2> No Idea what to watch? Let us help you find something new</h2>
+            <h1>What Should I Watch?</h1>
+            <h2> No idea what to watch? Let us help you find something new</h2>
             <p> We have been curating our archive of short films for over 20 years. Understandably, we have a lot of films. 
                 But if your in the mood to try somthing new, let us select 5 films for you to enjoy. Just awsner three questions, 
                 Or if you want to leave it up to us, we can randomize the selection for you.</p>

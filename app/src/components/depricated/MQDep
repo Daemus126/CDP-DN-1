@@ -1,0 +1,162 @@
+
+import { useState } from "react"
+import { FilterOptions } from "./Filter"
+import { useRef } from 'react';
+
+
+const Randomize = () => {
+    console.log("Randomize")
+}
+
+const PickUnder20 = () => {
+    console.log("PickUnder20")
+}
+
+const PickOver20 = () => {
+    console.log("PickOver20")
+}
+
+const NewFilm = () => {
+    console.log("NewFilm")
+}
+
+const OldFilm = () => {
+    console.log("OldFilm")
+}
+
+const ToggleNextQ = () => {
+    console.log("TNQ")    
+     let [isSelected, setIsSelected] = useState(false);
+             setIsSelected(!isSelected);
+             SetButtonClass('MainQuestions--Selected')
+
+}
+
+
+
+const MQuestionData = [
+    [
+        {
+           id: '1',
+            title: 'Let Me Pick',
+            function: ToggleNextQ,
+
+        },
+        {
+            id: '2',
+            title: 'Randomize',
+            function: Randomize,
+        },
+    ], [
+
+        {
+            id: '3',
+            title: 'Under 20 Mins',
+            function: PickUnder20,
+        },
+        {
+            id: '4',
+            title: 'Over 20 mins',
+            function: PickOver20,
+        },
+    ],
+    [
+        {
+            id: '5',
+            title: 'New to Directors Notes',
+            function: NewFilm,
+        },
+        {
+            id: '6',
+            title: 'From The Archive',
+            function: OldFilm,
+        },
+    ],
+]
+
+function MainQuestions() {
+
+    const [ButtonClass, SetButtonClass] = useState("MainQuestions");
+     const [isSelected, setIsSelected] = useState(false);
+    const [count, setCount] = useState(0)
+
+
+    function QuestionOne() {
+        if (MQuestionData.id = 1) {
+             setIsSelected(!isSelected);
+             SetButtonClass('MainQuestions--Selected')
+       console.log("selected", setIsSelected)
+        }
+    }
+
+   
+
+
+    const handleOn = () => {
+        const thisCount = count + 1
+
+        if (thisCount < MQuestionData.length) {
+            setCount(thisCount)
+        }
+
+
+    }
+
+    const myButtons = []
+    for (let i = 0; i <= count; i++) {
+        myButtons.push(MQuestionData[i])
+    }
+
+    return (
+        <>
+            <div className="Questions">
+
+                {myButtons.map((buttonData, index) => {
+                    return (
+                        <div key={index}>
+                            <div className='Questions'>
+                                <div
+                                    type="button"
+                                    className={isSelected ? 'MainQuestions--Selected' : 'MainQuestions'}
+                                    onClick={() => {
+                                        handleOn()
+                                        buttonData[0].function()
+                                        QuestionOne()
+
+                                    }}
+                                >
+                                    {buttonData[0].title}
+                                </div>
+                                <div
+                                    type="button" className='MainQuestions'
+
+                                    onClick={() => {
+                                        handleOn()
+                                        buttonData[1].function()
+                                    }}
+                                >
+                                    {buttonData[1].title}
+                                </div>
+                            </div>
+                        </div>
+
+                    )
+                })}
+
+            </div>
+        </>
+    )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,8 +29,6 @@ function getIntitialSelectedFilms() {
 
 
 function App() {
-
-
   // const [count, setCount] = useState(0)
   const [selectedIds, setSelectedIds] = useState(getIntitialSelectedFilms());
 
@@ -49,12 +47,19 @@ function App() {
     }
   }
 
-  const maxFilms = 5;
+
+  
+const [selectedTheme, setSelectedTheme] = useState("All themes");
+
+const visibleFilms = films.filter((film) => {
+  console.log("onTheme")
+   const matchesTheme = selectedTheme === "All themes"
+      || film.themes?.includes(selectedTheme);
+      return matchesTheme;
+      
+  });
 
 
-  //  const selectedFilms = films.filter((film) => selectedIds.includes(film.id));
-
- 
 
   return (
     <>
@@ -110,8 +115,7 @@ function App() {
 
 
 
-          {filmIndices && filmIndices.map((filmIndex) => {
-            const film = films[filmIndex]
+          {visibleFilms.map((film) => {
             return (
               <FilmCard
                 key={film.id}

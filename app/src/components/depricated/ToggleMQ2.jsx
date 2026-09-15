@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import MainQuestions from "./MainQuestions"
+import MainQuestions from "../MainQuestions"
 
 
 export const ToggleMQ2 = () => {

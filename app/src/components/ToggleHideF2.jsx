@@ -4,7 +4,7 @@
  
 
    export const ToggleHideF2 = () => {
-      const [isVisible, setIsVisible] = useState(true)
+      const [isVisible, setIsVisible] = useState(false)
 
       function ArrowDown() {
          setIsVisible(!isVisible)

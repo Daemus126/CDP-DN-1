@@ -1,141 +1,138 @@
 import { useState } from "react"
+import { useRef } from 'react';
 
 
 
-const ToggleNextQ = () => {
-    console.log("TNQ")
-    const [isSelected, setIsSelected] = useState(false);
-    setIsSelected(!isSelected);
-    console.log("iselect")
-}
-
-const Randomize = () => {
-    console.log("Randomize")
-}
-
-const PickUnder20 = () => {
-    console.log("PickUnder20")
-}
-
-const PickOver20 = () => {
-    console.log("PickOver20")
-}
-
-const NewFilm = () => {
-    console.log("NewFilm")
-}
-
-const OldFilm = () => {
-    console.log("OldFilm")
-}
-
-
-
-const MQuestionData = [
-    [
-        {
-
-            title: 'Let Me Pick',
-            function: ToggleNextQ,
-        },
-        {
-            title: 'Randomize',
-            function: Randomize,
-        },
-    
-    
-        {
-            title: 'Under 20 Mins',
-            function: PickUnder20,
-        },
-        {
-            title: 'Over 20 mins',
-            function: PickOver20,
-        },
-    ],
-    [
-        {
-            title: 'New to Directors Notes',
-            function: NewFilm,
-        },
-        {
-            title: 'From The Archive',
-            function: OldFilm,
-        },
-    ],
-]
 
 function MainQuestions() {
 
     const [ButtonClass, SetButtonClass] = useState("MainQuestions");
-    const [count, setCount] = useState(0)
-
-  
-
-
-
-
-    const handleOn = () => {
-        const thisCount = count + 1
-
-        if (thisCount < MQuestionData.length) {
-            setCount(thisCount)
-        }
+    const [isSelectedLetMePick, setIsSelectedLetMePick] = useState(false);
+    const [isSelectedRandomize, setIsSelectedRandomize] = useState(false);
+    const [isSelectedShortFilm, setIsSelectedShortFilm] = useState(false);
+    const [isSelectedLongFilm, setIsSelectedLongFilm] = useState(false);
+    const [isSelectedNew, setIsSelectedNew] = useState(false);
+    const [isSelectedArchive, setIsSelectedArchive] = useState(false);
+    const [isTimeVisible, setIsTimeVisible] = useState(false)
+    const [isArchiveVisible, setIsArchiveVisible] = useState(false)
 
 
+     const myRef = useRef<HTMLElement | null>(null);
+
+    const handleLetMePick = () => {
+        setIsTimeVisible(true)
+        console.log("isVisible", isTimeVisible)
+       
+        
     }
 
-    const myButtons = []
-    for (let i = 0; i <= count; i++) {
-        myButtons.push(MQuestionData[i])
+     const handleTime = () => {
+        setIsArchiveVisible(true)
+        console.log("isVisible", isTimeVisible)
     }
+
+    
+
 
     return (
         <>
-        <div className="Questions">
-            
-            {myButtons.map((buttonData, index) => {
-                return (
-                    <div key={index}>
-                        <div className='Questions'>
-                            <div
-                                type="button" className={ButtonClass}
-                                onClick={() => {
-                                    handleOn()
-                                    buttonData[0].function()
-                                    ToggleButtonClass
 
+            <div className="Questions" >
+                <div className='Questions'>
+                    <div onClick={handleLetMePick}>
+                    <div
+                        type="button" 
+                        className={isSelectedLetMePick ? 'MainQuestions--Selected' : 'MainQuestions'}
+                        onClick={() => {
+                            setIsSelectedLetMePick(!isSelectedLetMePick);
+                             myRef.current?.scrollIntoView()
+                             console.log("scroll")
+
+                        }}
+                    >
+                        Let Me Pick 
+                    </div>
+                    </div>
+                    <div
+                        type="button" 
+                        className={isSelectedRandomize ? 'MainQuestions--Selected' : 'MainQuestions'}
+
+                        onClick={() => {
+                            setIsSelectedRandomize(!isSelectedRandomize);
+                        }}
+                    >
+                        Randomize
+                    </div>
+                </div>
+
+            </div>
+
+            {
+                isTimeVisible &&
+
+                <>
+                    <div className="Questions" onClick={handleTime}> 
+                        <div className='Questions'  >
+                            <div
+                                type="button" 
+                                className={isSelectedShortFilm ? 'MainQuestions--Selected' : 'MainQuestions'}
+                                onClick={() => {
+                                    setIsSelectedShortFilm(!isSelectedShortFilm);
                                 }}
                             >
-                                {buttonData[0].title}
+                                Under 20 Mins
                             </div>
                             <div
-                                type="button" className='MainQuestions'
+                                type="button" className={isSelectedLongFilm ? 'MainQuestions--Selected' : 'MainQuestions'}
 
                                 onClick={() => {
-                                    handleOn()
-                                    buttonData[1].function()
+                                    setIsSelectedLongFilm(!isSelectedLongFilm);
                                 }}
                             >
-                                {buttonData[1].title}
+                                Over 20 Mins
                             </div>
                         </div>
+
                     </div>
-                  
-                )
-            })}
-           
-              </div>
+
+                </>
+            }
+
+            {isArchiveVisible && <>
+                <div className="Questions" >
+                        <div className='Questions'>
+                            <div
+                                type="button"
+                                className={isSelectedNew ? 'MainQuestions--Selected' : 'MainQuestions'}
+                                onClick={() => {
+                                    setIsSelectedNew(!isSelectedNew);
+                                }}
+                            >
+                                New To Directors Notes
+                            </div>
+                            <div
+                                type="button" className={isSelectedArchive ? 'MainQuestions--Selected' : 'MainQuestions'}
+
+                                onClick={() => {
+                                    setIsSelectedArchive(!isSelectedArchive);
+                                }}
+                            >
+                               From the Archive
+                            </div>
+                        </div>
+
+                    </div>
+                
+                
+                
+                </>}
+
+
         </>
+
+
+
     )
 }
 
-export default MainQuestions
-
-/*
-<button type="radio"
- 
-
-*/
-
-
+export default MainQuestions;
