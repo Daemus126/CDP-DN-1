@@ -27,7 +27,6 @@ function getIntitialSelectedFilms() {
  const filmIndices = RandomNumber(5, films.length)
   console.log('film indiiciies', filmIndices)
 
-
 function App() {
   // const [count, setCount] = useState(0)
   const [selectedIds, setSelectedIds] = useState(getIntitialSelectedFilms());
@@ -50,13 +49,17 @@ function App() {
 
   
 const [selectedTheme, setSelectedTheme] = useState("All themes");
-
+const [selectedForm, setSelectedForm] = useState("All form");
 const visibleFilms = films.filter((film) => {
   console.log("onTheme")
    const matchesTheme = selectedTheme === "All themes"
       || film.themes?.includes(selectedTheme);
-      return matchesTheme;
-      
+      console.log("Informs")
+        const matchesForm = selectedForm === "All form"
+      || film.form?.includes(selectedForm);
+       console.log("match", matchesForm);
+      return matchesTheme && matchesForm;
+     
   });
 
 
@@ -115,7 +118,7 @@ const visibleFilms = films.filter((film) => {
 
 
 
-          {visibleFilms.map((film) => {
+          {visibleFilms.map((film) => {        
             return (
               <FilmCard
                 key={film.id}

@@ -11,7 +11,7 @@
 }
 
 
-body{
+body {
   margin: 0rem;
   font-family: roboto, sans-serif;
   line-height: 1.5;
@@ -104,7 +104,7 @@ li a:hover {
   padding-left: 25%;
   padding-right: 10%;
   border-top: 15PX solid var(--accent-dark);
- 
+
 }
 
 .section-heading h2,
@@ -144,29 +144,29 @@ li a:hover {
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-    transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   background-color: var(--background)
-
 }
+
 .arrow-down:hover {
   border: solid var(--colormain);
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-    transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-    background-color: var(--background);
+  background-color: var(--background);
 }
 
 .arrow-up {
-   border: solid black;
+  border: solid black;
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-      background-color: var(--background);
+  background-color: var(--background);
 }
 
 .arrow-up:hover {
@@ -174,10 +174,10 @@ li a:hover {
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-     transform: rotate(-135deg);
+  transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-     background-color: var(--background);
-;
+  background-color: var(--background);
+  ;
 }
 
 .FilterOptionsTitle {
@@ -188,7 +188,7 @@ li a:hover {
   border-bottom: 1px solid var(--border);
 }
 
-.FilterOptions  {
+.FilterOptions {
   color: #d8d8d8;
   background-color: #242424;
   margin: 0.125rem;
@@ -198,16 +198,26 @@ li a:hover {
 .FilterOptions--Selected {
   color: #000;
   background-color: var(--colormain);
-   margin: 0.125rem;
-  
+  margin: 0.125rem;
+
 
 }
-
-
 
 .FilterOptions :hover {
   color: #000;
   background-color: var(--colormain);
+}
+
+
+.playOne {
+  z-index: -100;
+  border: solid var(--accent-dark);
+  border-width: 0 100px 0px 0;
+  padding: 60px;
+  transform: rotate(-160deg);
+  -webkit-transform: rotate(-160deg);
+  background-color: var(--accent-dark);
+
 }
 
 
@@ -221,8 +231,8 @@ li a:hover {
   padding-top: 0.5rem;
   border-bottom: 1rem solid var(--colormain);
   border-radius: 1rem;
-  
- 
+
+
 }
 
 .Questions {
@@ -234,25 +244,25 @@ li a:hover {
 }
 
 .MainQuestions {
- background-color: var(--Headerbg);
+  background-color: #0a0202;
   color: var(--colormain);
   margin-top: 3rem;
   max-width: 100%;
   padding: 1rem;
   text-align: center;
   font-size: 24px;
-  
+
 }
 
 .MainQuestions:hover {
-background-color: #000 ;
+  background-color: #000;
   color: var(--colormain);
 }
 
 
 
 .MainQuestions--Selected {
- background-color: var(--colormain);
+  background-color: var(--colormain);
   color: var(--Headerbg);
   margin-top: 3rem;
   max-width: 100%;
@@ -263,9 +273,9 @@ background-color: #000 ;
 
 .MainQuestions--Disabled {
 
-background-color: var(--Headerbg);
+  background-color: var(--Headerbg);
   color: #000;
-    max-width: 70%;
+  max-width: 70%;
   max-height: 90%;
   min-width: 40%;
   min-height: 70%;
@@ -359,8 +369,9 @@ background-color: var(--Headerbg);
   text-align: center;
 
 }
+
 .film-card-Nselect {
-   all: unset;
+  all: unset;
   max-width: 40%;
   max-height: 20%;
   margin-top: auto;
@@ -372,13 +383,13 @@ background-color: var(--Headerbg);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-    text-align: center;
+  text-align: center;
 
 }
 
 .film-Card--Select {
   all: unset;
-    max-width: 40%;
+  max-width: 40%;
   max-height: 20%;
   margin-top: auto;
   padding: 0.65rem 0.9rem;
@@ -386,8 +397,8 @@ background-color: var(--Headerbg);
   border-radius: 0.25rem;
   color: var(--Headerbg) !important;
   background-color: var(--colormain) !important;
-    text-align: center;
-  
+  text-align: center;
+
 }
 
 

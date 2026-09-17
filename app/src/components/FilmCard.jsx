@@ -10,37 +10,40 @@ function FilmCard({ id, title, synopsis, form, country, year, runtimeMinutes,
 
     return (
 
-    
-
-                    <div className="film-grid">
 
 
-                        <article className="film-card">
+        <div className="film-grid">
 
-                            <p className="film-meta">
-                                {form} · {country} · {year} · {runtimeMinutes} min
-                            </p>
-                            <h3>{title}</h3>
-                            <p>{synopsis}</p>
-                     
-                        
 
-                            {/* The arrow function matters. Writing onToggleSelect(id) here would
+            <article className="film-card">
+
+                <p className="film-meta">
+                    {form} · {country} · {year} · {runtimeMinutes} min
+                </p>
+                <h3>{title}</h3>
+                <p>{synopsis}</p>
+                <ul className="theme-list">
+                    {themes.map((theme) => (
+                        <li key={theme}>{theme}</li>
+                    ))}
+                </ul>
+
+                {/* The arrow function matters. Writing onToggleSelect(id) here would
           call it immediately, while the page is being drawn, instead of
           waiting for a click. */}
-                            <button type="button"
-                             className={isSelected ? 'film-Card--Select' : 'film-card-Nselect'} 
-                              onClick={() => onToggleSelect(id)}
-                             >
-                                {isSelected ? "Replay?" : "Watch Now"}
-                            </button>
+                <button type="button"
+                    className={isSelected ? 'film-Card--Select' : 'film-card-Nselect'}
+                    onClick={() => onToggleSelect(id)}
+                >
+                    {isSelected ? "Replay?" : "Watch Now"}
+                </button>
 
 
 
-                        </article>
-                    </div>
+            </article>
+        </div>
 
-               
+
 
     );
 
