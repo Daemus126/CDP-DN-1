@@ -14,6 +14,22 @@ export const ToggleHideF1 = () => {
   }
 
 
+
+  /*
+function Category({form, country, year, 
+  themes }) {
+  const [isSelected, setIsSelected] = useState(false);
+  function handleClick() {
+    setIsSelected(!isSelected);
+    console.log('Am i filter?', isSelected)
+    
+    
+  }
+  return (
+    <button className={isSelected ? 'FilterOptions--Selected' : 'FilterOptions'} onClick={handleClick}> <p>  {form} {country} {year} {themes} </p> </button>
+  );
+}
+  */
   /*
 function Category({form, country, year, 
   themes }) {
@@ -33,6 +49,11 @@ function Category({form, country, year,
 
 
 
+
+  const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
+  console.log("UNT", uniqueThemes)
+  const uniqueForms = [...new Set(films.flatMap(films => films.form))];
+  console.log("UNF", uniqueForms)
   const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
   console.log("UNT", uniqueThemes)
   const uniqueForms = [...new Set(films.flatMap(films => films.form))];
@@ -85,12 +106,16 @@ function Category({form, country, year,
         <><div className='FilterOptionsTitle'>
           <h4>Category</h4>
           <UNThemes />
+          <UNThemes />
+
+
 
 
 
 
         </div><div className='FilterOptionsTitle'>
             <h4>Genre</h4>
+            <UNForms />
             <UNForms />
 
 

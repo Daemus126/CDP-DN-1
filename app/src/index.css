@@ -196,14 +196,28 @@ li a:hover {
 .FilterOptions--Selected {
   color: #000;
   background-color: var(--colormain);
-  margin: 0.125rem;
+   margin: 0.125rem;
+  
 
 }
+
 
 
 .FilterOptions :hover {
   color: #000;
   background-color: var(--colormain);
+}
+
+
+.playOne {
+  z-index: -100;
+  border: solid var(--accent-dark);
+  border-width: 0 100px 0px 0;
+  padding: 60px;
+  transform: rotate(-160deg);
+  -webkit-transform: rotate(-160deg);
+  background-color: var(--accent-dark);
+
 }
 
 .playOne {
@@ -224,9 +238,8 @@ li a:hover {
   padding-top: 0.5rem;
   border-bottom: 1rem solid var(--colormain);
   border-radius: 1rem;
-  z-index: 3;
-
-
+  
+ 
 }
 
 .Questions {
@@ -238,7 +251,7 @@ li a:hover {
 }
 
 .MainQuestions {
-  background-color: #140a0a;
+ background-color: var(--Headerbg);
   color: var(--colormain);
   margin-top: 3rem;
   max-width: 100%;
