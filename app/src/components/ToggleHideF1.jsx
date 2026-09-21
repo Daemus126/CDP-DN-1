@@ -77,17 +77,10 @@ function Category({form, country, year,
         <><div className='FilterOptionsTitle'>
           <h4>Category</h4>
           <UNThemes/>
-
-
-
-
-
-
         </div><div className='FilterOptionsTitle'>
             <h4>Genre</h4>
             <UNForms/>
-
-
+            
           </div><div className='FilterOptionsTitle'>
             <h4>Year</h4>
             <FilterOptions

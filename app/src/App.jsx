@@ -5,9 +5,9 @@ import { Header } from "./components/Header";
 import films from "./data/films.js";
 import FilmCard from "./components/FilmCard.jsx";
 import { Footer } from './components/footer'
+import { FilterOptions } from './components/depricated/Filter.jsx';
 import RandomNumber from './data/random.js'
-import { ToggleHideF1 } from './components/ToggleHideF1.jsx'
-import { ToggleHideF2 } from './components/ToggleHideF2.jsx'
+import { ToggleHideF2 } from './components/ToggleHideF2.jsx';
 
 
 
@@ -36,6 +36,7 @@ function App() {
   const [isTimeVisible, setIsTimeVisible] = useState(false)
   const [isArchiveVisible, setIsArchiveVisible] = useState(false)
   const [visibleFilmstoggle, setvisibleFilmstoggle] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
 
   const Redraw = () => {
@@ -62,6 +63,14 @@ function App() {
       behavior: 'smooth'
     });
   };
+
+  function ArrowDown() {
+    setIsVisible(!isVisible)
+    console.log("here")
+    console.log("isVisible", isVisible)
+
+  }
+
 
 
   const handleLetMePick = () => {
@@ -97,19 +106,61 @@ function App() {
   }
 
 
+ const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
+  console.log("UNT", uniqueThemes)
+  const uniqueForms = [...new Set(films.flatMap(films => films.form))];
+  console.log("UNF", uniqueForms)
   const [selectedTheme, setSelectedTheme] = useState("All themes");
- const [selectedForm, setSelectedForm] = useState("All forms");
+  const [selectedForm, setSelectedForm] = useState("All forms");
 
- // const visibleFilms = films.filter((film) => {
- const visibleFilms = RandomNumber(5, films.length)
+
+  function UNForms() {
+    const [isselectedForm, setSelectedForm] = useState(null);
+    console.log("selectedform", isselectedForm)
+    return uniqueForms.map((form) => (
+      <button
+        key={form}
+        onClick={() => setSelectedForm(form)}
+        className={isselectedForm === form ? "FilterOptions--Selected" : "FilterOptions"}
+      >
+        <p>{form}</p>
+      </button>
+    ));
+  }
+
+  function UNThemes() {
+    const [isSelectedThemes, setIsSelectedThemes] = useState(false);
+    console.log("selectedThemes", isSelectedThemes)
+    return uniqueThemes.map((themes) => (
+      <button
+        key={themes}
+        onClick={() => setIsSelectedThemes(themes)}
+        className={isSelectedThemes === themes ? "FilterOptions--Selected" : "FilterOptions"}
+      >
+        <p>{themes}</p>
+      </button>
+    ));
+  }
+
+
+
+  // const visibleFilms = films.filter((film) => {
+   const visibleFilms = RandomNumber(5, films.length)
     .map((index) => films[index])
-    .filter((film) => { 
-       const matchesForm = selectedForm === "All forms"
-      || film.form === selectedForm;
+    .filter((film) => {
+      const matchesForm = selectedForm === "All forms"
+        || film.form === selectedForm;
       const matchesTheme = selectedTheme === "All themes"
         || film?.themes?.includes(selectedTheme);
-      return matchesTheme && matchesForm ;
+      return matchesTheme && matchesForm;
     });
+
+
+     function handleClearFilters() {
+    setSelectedForm("All forms");
+    setSelectedTheme("All themes");
+  }
+
 
 
   const archiveTotal = films.length;
@@ -139,11 +190,39 @@ function App() {
         <div className="Filter-question-Grid">
           <div className="filter">
             <h2 className="filter-header"> Filter</h2>
-            <ToggleHideF1 />
+            <button className={isVisible ? 'arrow-up' : 'arrow-down'} onClick={ArrowDown}></button>
+            {isVisible &&
+              <><div className='FilterOptionsTitle'>
+                <h4>Category</h4>
+                <UNThemes />
+              </div><div className='FilterOptionsTitle'>
+                  <h4>Genre</h4>
+                  <UNForms />
+
+                </div><div className='FilterOptionsTitle'>
+                  <h4>Year</h4>
+                  <FilterOptions
+                    Field="Before 2000" />
+                  <FilterOptions
+                    Field="2000-2005" />
+                  <FilterOptions
+                    Field="2005-2010" />
+                  <FilterOptions
+                    Field="2010-2015" /><FilterOptions
+                    Field="2015-2020" />
+                  <FilterOptions
+                    Field="2025-2026" />
+                  <FilterOptions
+                    Field="After 2025" />
+                </div></>
+
+
+            }
+
 
 
             <h2 className="filter-header"> Advanced filter</h2>
-            <ToggleHideF2 />
+          <ToggleHideF2/>  
           </div>
         </div>
         <div className="Question-Header">
@@ -189,7 +268,7 @@ function App() {
             isTimeVisible &&
 
             <>
-            
+
               <div className="Questions" onClick={handleTime}>
                 <div className='Questions'  >
                   <div
@@ -268,7 +347,7 @@ function App() {
               {visibleFilms.map((film) => {
                 return (
                   <FilmCard
-                     key={film}
+                    key={film}
                     id={film.id}
                     title={film.title}
                     synopsis={film.synopsis}
@@ -294,6 +373,7 @@ function App() {
             <p>Let's do a Retake</p>
             <button type="button" onClick={() => {
               Redraw()
+              handleClearFilters()
             }}
 
             >Select 5 more</button>
