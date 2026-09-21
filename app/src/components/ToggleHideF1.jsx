@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { FilterOptions } from "./Filter"
+import { FilterOptions } from "./depricated/Filter"
 import films from "../data/films"
 
 export const ToggleHideF1 = () => {
@@ -30,30 +30,9 @@ function Category({form, country, year,
   );
 }
   */
-  /*
-function Category({form, country, year, 
-  themes }) {
-  const [isSelected, setIsSelected] = useState(false);
-  function handleClick() {
-    setIsSelected(!isSelected);
-    console.log('Am i filter?', isSelected)
-    
-    
-  }
-  return (
-    <button className={isSelected ? 'FilterOptions--Selected' : 'FilterOptions'} onClick={handleClick}> <p>  {form} {country} {year} {themes} </p> </button>
-  );
-}
-  */
 
 
 
-
-
-  const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
-  console.log("UNT", uniqueThemes)
-  const uniqueForms = [...new Set(films.flatMap(films => films.form))];
-  console.log("UNF", uniqueForms)
   const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
   console.log("UNT", uniqueThemes)
   const uniqueForms = [...new Set(films.flatMap(films => films.form))];
@@ -61,17 +40,13 @@ function Category({form, country, year,
 
 
   function UNForms() {
-    const [isSelected, setIsSelected] = useState(false);
-
-    function handleClick() {
-    setIsSelected(!isSelected);
-    }
-
+    const [isselectedForm, setSelectedForm] = useState(null);
+ console.log("selectedform", isselectedForm)
     return uniqueForms.map((form) => (
       <button
         key={form}
-        className={isSelected ? "FilterOptions--Selected" : "FilterOptions"}
-        onClick={handleClick}
+        onClick={() => setSelectedForm(form)}
+        className={isselectedForm === form ? "FilterOptions--Selected" : "FilterOptions"}
       >
         <p>{form}</p>
       </button>
@@ -79,17 +54,13 @@ function Category({form, country, year,
   }
 
   function UNThemes() {
-    const [isSelected, setIsSelected] = useState(false);
-
-    function handleClick() {
-      setIsSelected(!isSelected);
-    }
-
+    const [isSelectedThemes, setIsSelectedThemes] = useState(false);
+    console.log("selectedThemes", isSelectedThemes)
     return uniqueThemes.map((themes) => (
       <button
-        key={themes}
-        className={isSelected ? "FilterOptions--Selected" : "FilterOptions"}
-        onClick={handleClick}
+     key={themes}
+        onClick={() => setIsSelectedThemes(themes)}
+        className={isSelectedThemes === themes ? "FilterOptions--Selected" : "FilterOptions"}
       >
         <p>{themes}</p>
       </button>
@@ -105,8 +76,7 @@ function Category({form, country, year,
       {isVisible &&
         <><div className='FilterOptionsTitle'>
           <h4>Category</h4>
-          <UNThemes />
-          <UNThemes />
+          <UNThemes/>
 
 
 
@@ -115,8 +85,7 @@ function Category({form, country, year,
 
         </div><div className='FilterOptionsTitle'>
             <h4>Genre</h4>
-            <UNForms />
-            <UNForms />
+            <UNForms/>
 
 
           </div><div className='FilterOptionsTitle'>

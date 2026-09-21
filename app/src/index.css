@@ -337,10 +337,8 @@ li a:hover {
   flex-direction: column;
   min-height: 100%;
   padding: 1.25rem;
-  border-top: 0.25rem solid var(--Headerbg);
-  border-right: 0.25rem solid var(--Headerbg);
-  border-bottom: 0.25rem solid var(--Headerbg);
-  border-radius: 0rem 0.5rem 0.5rem 0rem;
+  border: 0.25rem solid var(--Headerbg);
+  border-radius: 0.5rem;
   background-color: var(--surface);
 }
 

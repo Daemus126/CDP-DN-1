@@ -13,7 +13,7 @@ function FilmCard({ id, title, synopsis, form, country, year, runtimeMinutes,
 
 
 
-        <div className="film-grid">
+       
         <div className="film-grid">
 
 
@@ -45,20 +45,12 @@ function FilmCard({ id, title, synopsis, form, country, year, runtimeMinutes,
                 >
                     {isSelected ? "Replay?" : "Watch Now"}
                 </button>
-                <button type="button"
-                    className={isSelected ? 'film-Card--Select' : 'film-card-Nselect'}
-                    onClick={() => onToggleSelect(id)}
-                >
-                    {isSelected ? "Replay?" : "Watch Now"}
-                </button>
 
 
 
             </article>
         </div>
-            </article>
-        </div>
-
+           
 
 
 

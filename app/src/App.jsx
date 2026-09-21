@@ -98,14 +98,17 @@ function App() {
 
 
   const [selectedTheme, setSelectedTheme] = useState("All themes");
+ const [selectedForm, setSelectedForm] = useState("All forms");
 
-
-  const visibleFilms = RandomNumber(5, films.length)
+ // const visibleFilms = films.filter((film) => {
+ const visibleFilms = RandomNumber(5, films.length)
     .map((index) => films[index])
-    .filter((film) => {
+    .filter((film) => { 
+       const matchesForm = selectedForm === "All forms"
+      || film.form === selectedForm;
       const matchesTheme = selectedTheme === "All themes"
         || film?.themes?.includes(selectedTheme);
-      return matchesTheme;
+      return matchesTheme && matchesForm ;
     });
 
 
@@ -186,8 +189,7 @@ function App() {
             isTimeVisible &&
 
             <>
-              <div className='playOne'>
-              </div>
+            
               <div className="Questions" onClick={handleTime}>
                 <div className='Questions'  >
                   <div
