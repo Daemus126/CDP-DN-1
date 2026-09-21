@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { useRef } from 'react';
 
-
-
+/*
 
 function MainQuestions() {
 
@@ -15,15 +14,14 @@ function MainQuestions() {
     const [isSelectedArchive, setIsSelectedArchive] = useState(false);
     const [isTimeVisible, setIsTimeVisible] = useState(false)
     const [isArchiveVisible, setIsArchiveVisible] = useState(false)
-
+    const [visibleFilmstoggle, setvisibleFilmstoggle] = useState(false)
+   
 
      const myRef = useRef<HTMLElement | null>(null);
 
     const handleLetMePick = () => {
         setIsTimeVisible(true)
         console.log("isVisible", isTimeVisible)
-       
-        
     }
 
      const handleTime = () => {
@@ -31,9 +29,14 @@ function MainQuestions() {
         console.log("isVisible", isTimeVisible)
     }
 
-    
+     const showFilms = () => {
+    console.log("films??",visibleFilmstoggle)
+   setvisibleFilmstoggle(true)
+ }
 
 
+
+   
     return (
         <>
 
@@ -59,6 +62,7 @@ function MainQuestions() {
 
                         onClick={() => {
                             setIsSelectedRandomize(!isSelectedRandomize);
+                            showFilms()
                         }}
                     >
                         Randomize
@@ -115,6 +119,7 @@ function MainQuestions() {
 
                                 onClick={() => {
                                     setIsSelectedArchive(!isSelectedArchive);
+                                    showFilms()
                                 }}
                             >
                                From the Archive
@@ -136,3 +141,5 @@ function MainQuestions() {
 }
 
 export default MainQuestions;
+
+*/

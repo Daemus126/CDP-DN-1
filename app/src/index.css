@@ -11,7 +11,7 @@
 }
 
 
-body{
+body {
   margin: 0rem;
   font-family: roboto, sans-serif;
   line-height: 1.5;
@@ -35,13 +35,10 @@ body{
 
 }
 
-.site-header,
-main,
-footer {
-  width: min(1100px, calc(100% - 2rem));
-  margin: 0 auto;
+.header-format {
+  padding-right: 10rem;
+  padding-left: 3rem;
 }
-
 
 
 .site-header h1 {
@@ -104,7 +101,7 @@ li a:hover {
   padding-left: 25%;
   padding-right: 10%;
   border-top: 15PX solid var(--accent-dark);
- 
+
 }
 
 .section-heading h2,
@@ -119,6 +116,7 @@ li a:hover {
   color: #fff;
 }
 
+
 .filter {
   margin-top: 1rem;
   margin-right: 1rem;
@@ -131,7 +129,6 @@ li a:hover {
   float: left;
   border-right: 0.2rem solid var(--border);
   overflow: auto;
-
 }
 
 .filter-header {
@@ -144,29 +141,29 @@ li a:hover {
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-    transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   background-color: var(--background)
-
 }
+
 .arrow-down:hover {
   border: solid var(--colormain);
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-    transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-    background-color: var(--background);
+  background-color: var(--background);
 }
 
 .arrow-up {
-   border: solid black;
+  border: solid black;
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-      background-color: var(--background);
+  background-color: var(--background);
 }
 
 .arrow-up:hover {
@@ -174,10 +171,10 @@ li a:hover {
   border-width: 0 10px 10px 0;
   display: inline-block;
   padding: 10px;
-     transform: rotate(-135deg);
+  transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
-     background-color: var(--background);
-;
+  background-color: var(--background);
+  ;
 }
 
 .FilterOptionsTitle {
@@ -188,21 +185,20 @@ li a:hover {
   border-bottom: 1px solid var(--border);
 }
 
-.FilterOptions  {
+.FilterOptions {
   color: #d8d8d8;
   background-color: #242424;
   margin: 0.125rem;
+
 }
 
 
 .FilterOptions--Selected {
   color: #000;
   background-color: var(--colormain);
-   margin: 0.125rem;
-  
+  margin: 0.125rem;
 
 }
-
 
 
 .FilterOptions :hover {
@@ -210,6 +206,13 @@ li a:hover {
   background-color: var(--colormain);
 }
 
+.playOne {
+  z-index: -1;
+}
+
+.playTwo {
+  z-index: -1;
+}
 
 .Question-Header {
   margin-left: 25%;
@@ -221,8 +224,9 @@ li a:hover {
   padding-top: 0.5rem;
   border-bottom: 1rem solid var(--colormain);
   border-radius: 1rem;
-  
- 
+  z-index: 3;
+
+
 }
 
 .Questions {
@@ -230,29 +234,29 @@ li a:hover {
   display: grid;
   gap: 1rem;
   padding: 2rem;
-
+  z-index: 3;
 }
 
 .MainQuestions {
- background-color: var(--Headerbg);
+  background-color: #140a0a;
   color: var(--colormain);
   margin-top: 3rem;
   max-width: 100%;
   padding: 1rem;
   text-align: center;
   font-size: 24px;
-  
+
 }
 
 .MainQuestions:hover {
-background-color: #000 ;
+  background-color: #000;
   color: var(--colormain);
 }
 
 
 
 .MainQuestions--Selected {
- background-color: var(--colormain);
+  background-color: var(--colormain);
   color: var(--Headerbg);
   margin-top: 3rem;
   max-width: 100%;
@@ -263,9 +267,9 @@ background-color: #000 ;
 
 .MainQuestions--Disabled {
 
-background-color: var(--Headerbg);
+  background-color: var(--Headerbg);
   color: #000;
-    max-width: 70%;
+  max-width: 70%;
   max-height: 90%;
   min-width: 40%;
   min-height: 70%;
@@ -305,8 +309,6 @@ background-color: var(--Headerbg);
 .film-grid :hover {
   background-color: var(--Headerbg);
   color: var(--colormain);
-  content: " Queote about the move place holder text"
-
 }
 
 .film-title-card {
@@ -329,6 +331,11 @@ background-color: var(--Headerbg);
   background-color: var(--surface);
 }
 
+.film-card :hover {
+  clear: inherit;
+  content: " Quote about the move place holder text"
+
+}
 
 
 .film-card h3 {
@@ -359,8 +366,9 @@ background-color: var(--Headerbg);
   text-align: center;
 
 }
+
 .film-card-Nselect {
-   all: unset;
+  all: unset;
   max-width: 40%;
   max-height: 20%;
   margin-top: auto;
@@ -372,13 +380,13 @@ background-color: var(--Headerbg);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-    text-align: center;
+  text-align: center;
 
 }
 
 .film-Card--Select {
   all: unset;
-    max-width: 40%;
+  max-width: 40%;
   max-height: 20%;
   margin-top: auto;
   padding: 0.65rem 0.9rem;
@@ -386,8 +394,8 @@ background-color: var(--Headerbg);
   border-radius: 0.25rem;
   color: var(--Headerbg) !important;
   background-color: var(--colormain) !important;
-    text-align: center;
-  
+  text-align: center;
+
 }
 
 
