@@ -36,6 +36,7 @@ function App() {
   const [isTimeVisible, setIsTimeVisible] = useState(false)
   const [isArchiveVisible, setIsArchiveVisible] = useState(false)
   const [visibleFilmstoggle, setvisibleFilmstoggle] = useState(false)
+  const [visibleFilmstoggleTwo, setvisibleFilmstoggleTwo] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
 
 
@@ -90,6 +91,16 @@ function App() {
     setvisibleFilmstoggle(true)
   }
 
+    const hideFilms = () => {
+    console.log("films??", visibleFilmstoggle)
+    setvisibleFilmstoggle(false)
+  }
+
+    const showFilmstwo = () => {
+    console.log("films??", visibleFilmstoggleTwo)
+    setvisibleFilmstoggleTwo(true)
+  }
+
 
   useEffect(() => {
     localStorage.setItem(selectedFilmsKey, JSON.stringify(selectedIds));
@@ -103,7 +114,7 @@ function App() {
     } else {
       setSelectedIds([...selectedIds, id]);
     }
-  }
+  } 
 
 
  const uniqueThemes = [...new Set(films.flatMap(films => films.themes))];
@@ -116,7 +127,7 @@ function App() {
 
   function UNForms() {
     const [isselectedForm, setSelectedForm] = useState(null);
-    console.log("selectedform", isselectedForm)
+    console.log("form", isselectedForm)
     return uniqueForms.map((form) => (
       <button
         key={form}
@@ -130,7 +141,7 @@ function App() {
 
   function UNThemes() {
     const [isSelectedThemes, setIsSelectedThemes] = useState(false);
-    console.log("selectedThemes", isSelectedThemes)
+    console.log("Themes", isSelectedThemes)
     return uniqueThemes.map((themes) => (
       <button
         key={themes}
@@ -154,6 +165,8 @@ function App() {
         || film?.themes?.includes(selectedTheme);
       return matchesTheme && matchesForm;
     });
+
+  
 
 
      function handleClearFilters() {
@@ -215,8 +228,7 @@ function App() {
                   <FilterOptions
                     Field="After 2025" />
                 </div></>
-
-
+          
             }
 
 
@@ -240,6 +252,7 @@ function App() {
                   onClick={() => {
                     setIsSelectedLetMePick(!isSelectedLetMePick);
                     console.log("scroll")
+                    console.log("letmepick")
 
                   }}
                 >
@@ -329,7 +342,7 @@ function App() {
 
 
 
-          </>}
+            </>} 
 
 
         </>
@@ -367,12 +380,39 @@ function App() {
 
             </>}
 
+            {visibleFilmstoggleTwo &&
+
+            <>
+              {visibleFilms.map((film) => {
+                return (
+                  <FilmCard
+                    key={film}
+                    id={film.id}
+                    title={film.title}
+                    synopsis={film.synopsis}
+                    form={film.form}
+                    country={film.country}
+                    year={film.year}
+                    runtimeMinutes={film.runtimeMinutes}
+                    themes={film.themes}
+                    poster={film.poster}
+                    posterAlt={film.posterAlt}
+                    isSelected={selectedIds.includes(film.id)}
+                    onToggleSelect={handleToggleSelect}
+                  />
+                )
+              })
+              }
+
+            </>}
+
           <article className="retake">
             <h3>RETAKE</h3>
             <p>Already watched these, or looking for somthing a bit different? </p>
             <p>Let's do a Retake</p>
             <button type="button" onClick={() => {
-              Redraw()
+              showFilmstwo()
+              hideFilms()
               handleClearFilters()
             }}
 
